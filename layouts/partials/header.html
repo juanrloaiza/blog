@@ -1,0 +1,8 @@
+<section class="hero">
+    <div class="hero-body has-text-centered">
+        {{ $logo := resources.Get "images/glasses.png" }}
+        <img src='{{ $logo.Permalink }}' style="width: 5rem" />
+        <p class="title">Juan R. Loaiza</p>
+        <p class="subtitle">{{ .Site.Params.byline }}</p>
+    </div>
+</section>

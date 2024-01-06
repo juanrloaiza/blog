@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ partial "header" }}
+{{ .Content }}
+
+
+<h1 class="title">{{ .Title }}</h1>
+{{ range .Paginator.Pages }}
+<div class="columns">
+    <div class="column is-2">{{ .Date.Format "02.01.2006" }}</div>
+    <div class="column">
+        <a class="subtitle is-5" href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        <span class="tags mt-2">
+            {{- range .Params.tags }} <span class="tag ">{{ . }}</span>{{- end}}
+        </span>
+    </div>
+</div>
+
+{{ end }}
+{{ end }}

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="hero">
+    <div class="hero-body has-text-large has-text-centered">
+        <p class="title">{{ .Title | markdownify }}</p>
+        <p class="subtitle mb-4 is-size-6">{{ .Date.Format "02.01.2006" }}</p>
+        {{- range .Params.tags }}
+        <p class="tag">{{ . }}</p>
+        {{- end}}
+    </div>
+</div>
+<div>
+    <hr class="mt-0">
+</div>
+
+<div class="container content mb-5">
+    {{ .Content}}
+</div>
+{{ end }}

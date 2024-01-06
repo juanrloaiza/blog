@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "header" . }}
+{{ .Content }}
+
+<div class="mx-3">
+    <h1 class="title">Posts recientes</h1>
+    {{ range first 5 .Paginator.Pages }}
+    {{ partial "post-preview" .}}
+    {{ end }}
+</div>
+{{ end }}

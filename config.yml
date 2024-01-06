@@ -1,0 +1,25 @@
+baseURL: "http://example.org/"
+languageCode: es-co
+title: Juan R. Loaiza's Blog
+defaultContentLanguage: es
+
+languages:
+  es:
+    contentDir: content/es
+  en:
+    contentDir: content/en
+
+menu:
+  main:
+    - name: Inicio
+      pageRef: /
+      weight: 1
+    - name: Archivo
+      pageRef: /posts
+      weight: 2
+
+permalinks:
+  posts: /posts/:year/:month/:title/
+
+params:
+  byline: "Filósofo y docente"

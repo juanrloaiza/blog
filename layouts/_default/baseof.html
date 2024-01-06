@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
+    {{ with resources.Get "sass/main.scss" | toCSS $opts | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+
+
+    <title>{{ block "pagetitle" . }} {{ .Title }} {{ end }}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-hidden-mobile"></div>
+            <div class="column is-two-thirds">
+                {{ partial "navbar" . }}
+
+                {{ block "main" . }}
+
+                {{ end }}
+
+                {{ partial "footer" .}}
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</body>
+
+</html>
