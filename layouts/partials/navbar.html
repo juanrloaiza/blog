@@ -1,8 +1,37 @@
+<script>document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+        });
+
+    });
+</script>
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
 
-    <div class="navbar-brand"></div>
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="blog-navbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
 
-    <div class="navbar-menu">
+    <div id="blog-navbar" class="navbar-menu">
         <div class="navbar-start">
             {{ range .Site.Menus.main }}
             <a class="navbar-item" href="{{ .PageRef }}">{{ .Name }}</a>
@@ -10,9 +39,14 @@
         </div>
 
         <div class="navbar-end">
-            <a class="navbar-item" href="{{ .Site.BaseURL }}">Juan R. Loaiza</a>
+            <a class="navbar-item is-hidden-touch" href="{{ .Site.BaseURL }}">Juan R. Loaiza</a>
         </div>
     </div>
-
-
 </nav>
+
+<style>
+    .navbar-menu {
+        box-shadow: none;
+        border-bottom: 1px solid #ccc;
+    }
+</style>
