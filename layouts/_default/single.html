@@ -15,4 +15,18 @@
 <div class="container content mb-5">
     {{ .Content}}
 </div>
+
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{ .Content | truncate 100 }}{{ end }}
+" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta name="og:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{ .Content | truncate 100 }}{{ end }}
+" />
+<meta name="twitter:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{ .Content | truncate 100 }}{{ end }}
+" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+
 {{ end }}
