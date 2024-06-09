@@ -3,6 +3,25 @@ languageCode: es-co
 title: Juan R. Loaiza's Blog
 defaultContentLanguage: es
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - $
+              - $
+            - - \(
+              - \)
+        enable: true
+
 languages:
   es:
     contentDir: content/es
@@ -23,3 +42,4 @@ permalinks:
 
 params:
   byline: "Filósofo y docente"
+  math: true

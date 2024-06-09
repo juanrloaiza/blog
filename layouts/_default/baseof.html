@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{ end }}
 
-
     <title>{{ block "pagetitle" . }} {{ .Title }} {{ end }}</title>
+
+    {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+    {{ end }}
+
 </head>
 
 <body>
